@@ -1,0 +1,19 @@
+{
+  "name": "setup-typescript-app",
+  "version": "1.0.0",
+  "description": "setup-typescript-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frank-nguyen-vd/setup-typescript-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frank-nguyen-vd/setup-typescript-app/issues"
+  },
+  "homepage": "https://github.com/frank-nguyen-vd/setup-typescript-app#readme"
+}
