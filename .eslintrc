@@ -1,8 +1,12 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["prettier", "plugin:@typescript-eslint/recommended"],
-  "extends": ["eslint:recommended", "prettier"],
+  "plugins": ["prettier"],
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "rules": {
     "prettier/prettier": 2,
     "no-use-before-define": ["error", { "functions": true, "classes": true }],
