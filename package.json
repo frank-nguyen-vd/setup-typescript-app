@@ -4,11 +4,12 @@
     "description": "setup-typescript-app",
     "main": "src/index.js",
     "scripts": {
-        "test": "jasmine",
+        "jasmine": "jasmine",
         "build": "npx tsc",
         "prettier": "prettier --write .",
         "lint": "eslint src/**/*.ts",
-        "format": "eslint src/**/*.ts --fix"
+        "format": "eslint src/**/*.ts --fix",
+        "test": "npm run build && npm run jasmine"
     },
     "repository": {
         "type": "git",
