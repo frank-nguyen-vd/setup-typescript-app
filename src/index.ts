@@ -1,10 +1,8 @@
 import express from 'express';
-
+import routes from './resources/index';
 export const app = express();
 const port = 5000;
 
-app.get('/api', (req, res) => {
-    res.send('Hello World');
-});
+app.use('/api', routes);
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
