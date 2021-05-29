@@ -1,5 +1,6 @@
 import express from 'express';
 import { promises as fs } from 'fs';
+import csv from 'csvtojson';
 
 export const app = express();
 const port = 5000;
@@ -17,6 +18,15 @@ app.get('/write', async (req, res) => {
 app.get('/read', async (req, res) => {
     const myFile = await fs.readFile('data/myFile.txt', 'utf-8');
     res.send(myFile);
+});
+
+app.get('/read-csv', async (req, res) => {
+    const jsonObj = await csv().fromFile('data/users.csv');
+    jsonObj.forEach((record) => {
+        if (!record.phone) record.phone = 'missing data';
+    });
+
+    res.send(jsonObj);
 });
 
 app.get('/read-abit', async (req, res) => {
