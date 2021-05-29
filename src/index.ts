@@ -1,6 +1,7 @@
 import express from 'express';
 import { promises as fs } from 'fs';
 import csv from 'csvtojson';
+import { stringify } from 'querystring';
 
 export const app = express();
 const port = 5000;
@@ -27,6 +28,28 @@ app.get('/read-csv', async (req, res) => {
     });
 
     res.send(jsonObj);
+});
+
+app.get('/write-csv', (req, res) => {
+    res.send('Converting in process');
+    csv()
+        .fromFile('data/users.csv')
+        .then((data) => {
+            let newData = data.map(
+                (item: {
+                    first_name: string;
+                    last_name: string;
+                    phone: string;
+                }) => {
+                    let first_name = item.first_name;
+                    let last_name = item.last_name;
+                    let phone = item.phone;
+                    if (phone == '') phone = 'missing_data';
+                    return { first_name, last_name, phone };
+                }
+            );
+            fs.writeFile('data/users.json', JSON.stringify(newData));
+        });
 });
 
 app.get('/read-abit', async (req, res) => {
