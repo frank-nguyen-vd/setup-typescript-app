@@ -4,7 +4,9 @@ import logger from '../services/logger';
 const productsController = express.Router();
 
 productsController.get('/', logger, (req, res) => {
-    res.send('Products Controller');
+    return res.send({
+        success: true
+    });
 });
 
 export default productsController;
