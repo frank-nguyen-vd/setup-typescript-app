@@ -1,9 +1,11 @@
 import express from 'express';
-import logger from '../services/logger';
+import log4js from 'log4js';
+
+const log = log4js.getLogger('/products');
 
 const productsController = express.Router();
-
-productsController.get('/', logger, (req, res) => {
+productsController.get('/', (req, res) => {
+    log.debug('/products is called');
     return res.send({
         success: true
     });
